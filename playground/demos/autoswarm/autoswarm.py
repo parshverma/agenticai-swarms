@@ -7,7 +7,7 @@ import swarms.prompts.autoswarm as sdsp
 # Load environment variables and initialize the OpenAI Chat model
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
-llm = OpenAIChat(model_name="gpt-4", openai_api_key=api_key)
+llm = OpenAIChat(model_name="gpt-3", openai_api_key=api_key)
 
 user_idea = "screenplay writing team"
 
