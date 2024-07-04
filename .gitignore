@@ -13,10 +13,12 @@ static/generated
 runs
 artifacts_five
 chroma
+Accounting Assistant_state.json
 Unit Testing Agent_state.json
 Devin_state.json
 json_logs
 Medical Image Diagnostic Agent_state.json
+flight agent_state.json
 D_state.json
 artifacts_six
 artifacts_seven

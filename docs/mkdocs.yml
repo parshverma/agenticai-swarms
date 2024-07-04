@@ -51,7 +51,7 @@ extra:
 theme:
     name: material
     custom_dir: overrides
-    logo: assets/img/SwarmsLogoIcon.png
+    logo: assets/img/swarms-logo.png
     palette:
       # Palette toggle for light mode
     - scheme: default
@@ -141,12 +141,12 @@ nav:
         - BaseStructure: "swarms/structs/basestructure.md"
         - Task: "swarms/structs/task.md"
         - YamlModel: "swarms/structs/yaml_model.md"
-      - Workflows:
-        - BaseWorkflow: "swarms/structs/base_workflow.md"
-        - ConcurrentWorkflow: "swarms/structs/concurrentworkflow.md"
-        - SequentialWorkflow: "swarms/structs/sequential_workflow.md"
-        - MultiProcessingWorkflow: "swarms/structs/multi_processing_workflow.md"
       - Multi Agent Architectures:
+        - Workflows:
+          - BaseWorkflow: "swarms/structs/base_workflow.md"
+          - ConcurrentWorkflow: "swarms/structs/concurrentworkflow.md"
+          - SequentialWorkflow: "swarms/structs/sequential_workflow.md"
+          - MultiProcessingWorkflow: "swarms/structs/multi_processing_workflow.md"
         - Conversation: "swarms/structs/conversation.md"
         - SwarmNetwork: "swarms/structs/swarmnetwork.md"
         - MajorityVoting: "swarms/structs/majorityvoting.md"
@@ -158,10 +158,11 @@ nav:
         - AutoSwarmRouter: "swarms/structs/auto_swarm_router.md"
         - AutoSwarm: "swarms/structs/auto_swarm.md"
         - GroupChat: "swarms/structs/group_chat.md"
-        
+        - AgentRegistry: "swarms/structs/agent_registry.md"
   - Swarms Cloud API:
     - Overview: "swarms_cloud/main.md"
     - Available Models: "swarms_cloud/available_models.md"
+    - Agent API: "swarms_cloud/agent_api.md"
     - Migrate from OpenAI to Swarms in 3 lines of code: "swarms_cloud/migrate_openai.md"
     - Getting Started with SOTA Vision Language Models VLM: "swarms_cloud/getting_started.md"
     - Enterprise Guide to High-Performance Multi-Agent LLM Deployments: "swarms_cloud/production_deployment.md"

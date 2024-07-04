@@ -2,6 +2,7 @@ import os
 import shutil
 from loguru import logger
 
+
 def cleanup_json_logs(name: str = None):
     # Define the root directory and the target directory
     root_dir = os.getcwd()
@@ -31,6 +32,7 @@ def cleanup_json_logs(name: str = None):
     # Delete Chroma and Ruff cache
     chroma_cache = os.path.join(root_dir, ".chroma_cache")
     ruff_cache = os.path.join(root_dir, ".ruff_cache")
+    dist_cache = os.path.join(root_dir, "dist")
 
     if os.path.exists(chroma_cache):
         shutil.rmtree(chroma_cache)
@@ -40,14 +42,20 @@ def cleanup_json_logs(name: str = None):
         shutil.rmtree(ruff_cache)
         logger.info(f"Deleted Ruff cache at {ruff_cache}")
 
+    if os.path.exists(dist_cache):
+        shutil.rmtree(dist_cache)
+        logger.info(f"Deleted the dist cache at {dist_cache}")
+
     # Delete the "chroma" folder
     chroma_folder = os.path.join(root_dir, "chroma")
     if os.path.exists(chroma_folder):
         shutil.rmtree(chroma_folder)
         logger.info(f"Deleted Chroma folder at {chroma_folder}")
 
-    logger.info(f"All JSON, LOG and TXT files have been moved to {target_dir}")
+    logger.info(
+        f"All JSON, LOG and TXT files have been moved to {target_dir}"
+    )
 
 
 # Call the function
-cleanup_json_logs("heinz_swarm")
+cleanup_json_logs("sequential_workflow_agents")
