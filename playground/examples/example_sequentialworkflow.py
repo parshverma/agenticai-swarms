@@ -46,4 +46,4 @@ workflow.run()
 
 # Output the results
 for task in workflow.tasks:
-    print(f"Task: {task.description}, Result: {task.result}")
+    print("Task: {task.description}, Result: {task.result}")
