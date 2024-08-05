@@ -44,6 +44,7 @@ llm = OpenAIChat(
     model_name="gpt-3.5-turbo",
     openai_api_key=api_key,
     max_tokens=4000,
+    
 )
 
 
@@ -57,13 +58,13 @@ agent1 = Agent(
 )
 
 
-# agent2 = Agent(
-#     agent_name="CatFactAnalyzer",
-#     system_prompt="Analyze the given cat fact",
-#     llm=llm,
-#     max_loops=1,
-#     dashboard=False,
-# )
+agent2 = Agent(
+    agent_name="CatFactAnalyzer",
+    system_prompt="Analyze the given cat fact",
+    llm=llm,
+    max_loops=1,
+    dashboard=False,
+)
 
 # Create the Sequential workflow
 workflow = SequentialWorkflow(
