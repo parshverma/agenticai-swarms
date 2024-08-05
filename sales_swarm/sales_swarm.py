@@ -1,70 +1,70 @@
-import os
-from dotenv import load_dotenv
-from swarms import BaseSwarm, Agent, OpenAIChat, AutoSwarmRouter
+# import os
+# from dotenv import load_dotenv
+# from swarms import BaseSwarm, Agent, OpenAIChat, AutoSwarmRouter
 
-# Load environment variables
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+# # Load environment variables
+# load_dotenv()
+# api_key = os.getenv("OPENAI_API_KEY")
 
-# Define the SalesSwarm class
-class SalesSwarm(BaseSwarm):
-    def __init__(self, name="sales_swarm", *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.name = name
+# # Define the SalesSwarm class
+# class SalesSwarm(BaseSwarm):
+#     def __init__(self, name="sales_swarm", *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.name = name
 
-        # Define and add your agents here
-        self.customer_data_analyzer = Agent(
-            agent_name="Customer Data Analyzer",
-            system_prompt="Analyze customer data to identify potential leads.",
-            llm=OpenAIChat(openai_api_key=api_key),
-            max_loops=1,
-            autosave=True,
-            dashboard=False,
-            streaming_on=True,
-            verbose=True,
-            stopping_token="<DONE>",
-        )
-        self.pitch_generator = Agent(
-            agent_name="Pitch Generator",
-            system_prompt="Generate a sales pitch based on the analyzed customer data.",
-            llm=OpenAIChat(openai_api_key=api_key),
-            max_loops=1,
-            autosave=True,
-            dashboard=False,
-            streaming_on=True,
-            verbose=True,
-            stopping_token="<DONE>",
-        )
-        self.revenue_forecaster = Agent(
-            agent_name="Revenue Forecaster",
-            system_prompt="Forecast potential revenue based on the sales pitch and customer data.",
-            llm=OpenAIChat(openai_api_key=api_key),
-            max_loops=1,
-            autosave=True,
-            dashboard=False,
-            streaming_on=True,
-            verbose=True,
-            stopping_token="<DONE>",
-        )
+#         # Define and add your agents here
+#         self.customer_data_analyzer = Agent(
+#             agent_name="Customer Data Analyzer",
+#             system_prompt="Analyze customer data to identify potential leads.",
+#             llm=OpenAIChat(openai_api_key=api_key),
+#             max_loops=1,
+#             autosave=True,
+#             dashboard=False,
+#             streaming_on=True,
+#             verbose=True,
+#             stopping_token="<DONE>",
+#         )
+#         self.pitch_generator = Agent(
+#             agent_name="Pitch Generator",
+#             system_prompt="Generate a sales pitch based on the analyzed customer data.",
+#             llm=OpenAIChat(openai_api_key=api_key),
+#             max_loops=1,
+#             autosave=True,
+#             dashboard=False,
+#             streaming_on=True,
+#             verbose=True,
+#             stopping_token="<DONE>",
+#         )
+#         self.revenue_forecaster = Agent(
+#             agent_name="Revenue Forecaster",
+#             system_prompt="Forecast potential revenue based on the sales pitch and customer data.",
+#             llm=OpenAIChat(openai_api_key=api_key),
+#             max_loops=1,
+#             autosave=True,
+#             dashboard=False,
+#             streaming_on=True,
+#             verbose=True,
+#             stopping_token="<DONE>",
+#         )
 
-    def run(self, task: str, *args, **kwargs):
-        # Add your multi-agent logic here
-        analyzed_data = self.customer_data_analyzer.run(task, *args, **kwargs)
-        pitch = self.pitch_generator.run(task, analyzed_data, *args, **kwargs)
-        forecast = self.revenue_forecaster.run(task, pitch, analyzed_data, *args, **kwargs)
-        return forecast
+#     def run(self, task: str, *args, **kwargs):
+#         # Add your multi-agent logic here
+#         analyzed_data = self.customer_data_analyzer.run(task, *args, **kwargs)
+#         pitch = self.pitch_generator.run(task, analyzed_data, *args, **kwargs)
+#         forecast = self.revenue_forecaster.run(task, pitch, analyzed_data, *args, **kwargs)
+#         return forecast
 
-# Initialize the sales swarm instance
-sales_swarm_instance = SalesSwarm()
+# # Initialize the sales swarm instance
+# sales_swarm_instance = SalesSwarm()
 
-# Create the AutoSwarmRouter with the sales swarm instance
-router = AutoSwarmRouter(swarms=[sales_swarm_instance])
+# # Create the AutoSwarmRouter with the sales swarm instance
+# router = AutoSwarmRouter(swarms=[sales_swarm_instance])
 
-# Example of running the swarm
-if __name__ == "__main__":
-    task = "Analyze customer data and generate a sales pitch"
-    result = sales_swarm_instance.run(task)
-    print("Sales Swarm Result:", result)
+# # Example of running the swarm
+# if __name__ == "__main__":
+#     task = "Analyze customer data and generate a sales pitch"
+#     result = sales_swarm_instance.run(task)
+#     print("Sales Swarm Result:", result)
 
 # import os
 # from swarms import BaseSwarm, Agent, AutoSwarm, AutoSwarmRouter, OpenAIChat
