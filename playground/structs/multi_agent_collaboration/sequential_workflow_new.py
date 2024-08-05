@@ -1,8 +1,17 @@
-from swarms import Agent, SequentialWorkflow, Anthropic
 
+import os
+from swarms import OpenAIChat, Agent, SequentialWorkflow
+from dotenv import load_dotenv
 
+api_key = os.getenv("OPENAI_API_KEY")
+print(api_key)
 # Initialize the language model agent (e.g., GPT-3)
-llm = Anthropic()
+"""
+llm = OpenAIChat(
+    temperature=0.5,
+    model_name="gpt-3.5-turbo",
+    openai_api_key=api_key,
+    max_tokens=800,)
 
 # Initialize agents for individual tasks
 agent1 = Agent(
@@ -31,3 +40,4 @@ workflow = SequentialWorkflow(
 workflow.run(
     "Generate a blog post on how swarms of agents can help businesses grow."
 )
+"""

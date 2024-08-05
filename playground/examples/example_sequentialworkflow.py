@@ -13,7 +13,7 @@ llm = OpenAIChat(
     temperature=0.5,
     model_name="gpt-3.5-turbo",
     openai_api_key=api_key,
-    max_tokens=4000,
+    max_tokens=800,
 )
 
 agent1 = Agent(
@@ -76,3 +76,9 @@ workflow.run(
 # for task in workflow.tasks:
 #     print(f"Task: {task.description}, Result: {task.result}")
 
+<<<<<<< HEAD
+=======
+# Output the results
+for task in workflow.tasks:
+    print("Task: {task.description}, Result: {task.result}")
+>>>>>>> a7f34142dab70ee1e57890273b1ccedd00a8a95b
